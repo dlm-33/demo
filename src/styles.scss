@@ -1,0 +1,140 @@
+@import 'scss/reset.scss';
+
+
+// fonts
+h1, h2, h3, h4, h5, h6, p, a, ol, ul, th, td {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: normal;
+}
+
+
+// base colors
+// the number represent a shade
+$white: #fff;
+$blue-80: #0f8ec7;
+$blue-100: #1574b1;
+$green: #33b057;
+$red: #ff2233;
+$grey-10: #f7f7f7; // bg table header right
+$grey-20: #efefef; // bg table header left
+$grey-30: #e5e5e5; // border element dashboard
+$grey-40: #bbb; // border table header
+$grey-50: #7b7b7b; //text table header
+$grey-60: #777; // text balance account
+$black: #333;
+
+
+// general clases
+.positive {
+  color: $green;
+}
+
+.negative {
+  color: $red;
+}
+
+.neutral {
+  color: $grey-60;
+}
+
+
+body {
+  background: $blue-80;
+
+  header {
+    display: flex;
+    width: 98%;
+    margin: 1% auto 0px auto;
+    justify-content: center;
+    background: $grey-10;
+    border-bottom:2px solid $grey-40;
+
+    i {
+      color: $blue-80;
+    }
+
+    .left {
+      width: 50%;
+      background: $grey-20;
+      border-right: 3px solid $white;
+      cursor: pointer;
+
+      h1 {
+        text-align: left;
+        font-size: 1rem;
+        font-weight: bold;
+        padding: 27px 0px 3px 10px;
+      }
+    }
+
+    .right {
+      width: 50%;
+      padding:8px 10px 0px 0px; 
+      cursor: pointer;
+
+      h2 {
+      text-align: right;
+      color:$black;
+      font-size: 0.9rem;
+      font-weight: bold;
+      }
+
+      h2:last-child {
+        padding-top: 2px;
+        color: $grey-50;
+      }
+    }
+  }
+
+  section {
+    display: block;
+    width: 98%;
+    margin: 0px auto;
+    background: $white;
+
+    .account {
+      display: flex;
+      width: 98%;
+      margin-left: 2%;
+      justify-content: center;
+      border-bottom:2px solid $grey-30;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      .left {
+        width: 50%;
+
+        h1 {
+          color: $blue-80;
+          font-weight: bold;
+          padding-top: 16px;
+        }
+      }
+
+      .right {
+        width: 50%;
+        text-align: right;
+        padding: 8px 10px 8px 0px;
+
+        h1 {
+          color: $black;
+        }
+
+        h4 {
+          font-size: 0.9rem;
+          font-weight: 500;
+        }
+      }
+    }
+
+    h2 {
+      color: $blue-80;
+      text-align: center;
+      font-size: 1rem;
+      padding: 15px 0px;
+      cursor: pointer;
+    }
+  }
+}

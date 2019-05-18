@@ -1,0 +1,31 @@
+<header>
+  <div class="left" (click)="sortBy('number')">
+    <h1>
+      Account 
+      <i class="fas" [ngClass]="{'fa-angle-down': sortingDir == 'asc' && sortingField == 'number',
+      'fa-angle-up': sortingDir == 'desc' && sortingField == 'number'}"></i>
+    </h1>
+  </div>
+  <div class="right" (click)="sortBy('balance')">
+    <h2>
+      <i class="fas" [ngClass]="{'fa-angle-down': sortingDir == 'asc' && sortingField == 'balance',
+      'fa-angle-up': sortingDir == 'desc' && sortingField == 'balance'}"></i>
+      Available Cash
+    </h2>
+    <h2>Today's Change</h2>
+  </div>
+</header>
+<section>
+  <article class="account" *ngFor="let item of accounts | accountFilter: showAll">
+    <div class="left">
+      <h1>{{item.tag}} - {{item.number}}</h1>
+    </div>
+    <div class="right">
+      <h1>{{item.balance | currency}}</h1>
+      <h4 [ngClass]="{'neutral': item.change == 0, 
+      'positive': item.change > 0, 
+      'negative': item.change < 0}">{{item.change | number: '0.2'}} / {{ ( item.change * item.balance) | currency}} </h4>
+    </div>
+  </article>
+  <h2 *ngIf="!showAll" (click)="toggleShow()"> Load more</h2>
+</section>
